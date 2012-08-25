@@ -11,6 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 0) do
+ActiveRecord::Schema.define(:version => 20120825140244) do
+
+  create_table "resources", :force => true do |t|
+    t.string   "title"
+    t.string   "topic"
+    t.decimal  "price",      :precision => 8, :scale => 2
+    t.text     "content"
+    t.string   "image"
+    t.integer  "rating"
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
+  end
 
 end
