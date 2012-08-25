@@ -4,7 +4,12 @@ gem 'rails', '3.2.8'
 gem 'jquery-rails'
 gem 'bcrypt-ruby', '~> 3.0.0' # To use ActiveModel has_secure_password
 gem 'rake'
-# gem 'rmagick'
+
+
+# Resource Uploader Gems
+gem 'rmagick', :require => 'RMagick'
+gem 'carrierwave'
+
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
