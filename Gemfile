@@ -1,19 +1,24 @@
 source 'https://rubygems.org'
 
+# Bundle edge Rails instead:
+# gem 'rails', :git => 'git://github.com/rails/rails.git'
+# gem 'sqlite3'
+
 gem 'rails', '3.2.8'
 gem 'jquery-rails'
 gem 'bcrypt-ruby', '~> 3.0.0' # To use ActiveModel has_secure_password
 gem 'rake'
 
-
 # Resource Uploader Gems
 gem 'rmagick', :require => 'RMagick'
 gem 'carrierwave'
 
+# Authentication Gems
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'oauth2'
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-# gem 'sqlite3'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -36,7 +41,7 @@ group :test do
 end
 
 group :production do
-	gem 'pg'
+	gem 'pg' # heroku pg:reset
 end
 
 
