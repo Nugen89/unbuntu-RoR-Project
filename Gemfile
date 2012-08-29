@@ -18,7 +18,7 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'oauth2'
-
+	# omniauth-ldap
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -43,6 +43,12 @@ end
 group :production do
 	gem 'pg' # heroku pg:reset
 end
+
+# HEROKU DATABASE COMMANDS
+# heroku pg:reset DATABASE
+# heroku run rake db:migrate
+# heroku restart
+# railsapps.github.com/rails-heroku-tutorial.html
 
 
 # To use Jbuilder templates for JSON

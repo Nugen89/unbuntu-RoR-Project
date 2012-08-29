@@ -9,8 +9,27 @@
 <body>
 
 <%= render 'layouts/header' %>
+<div class="container">
+	<%= render 'layouts/authentication' %>
+</div>
+<div class="container">
+	<%= render 'layouts/profile_options' %>
+</div>
 
-<%= yield %>
+<div class="container">
+	<% flash.each do |name, msg| %>
+		<%= content_tag :div, msg, id: "flash_#{name}" %>
+	<% end %>
+</div>
+
+<div class="container">
+	<%= yield %>
+</div>
+
+<div class="container">
+	<%= debug(params) if Rails.env.development? %>
+	<%= debug(current_user) %>
+</div>
 
 </body>
 </html>

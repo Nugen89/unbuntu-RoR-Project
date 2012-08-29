@@ -7,25 +7,27 @@
     <th>Price</th>
     <th>Content</th>
     <th>Image</th>
+    <th>Image Thumbnail</th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
 
-<% @resources.each do |resource| %>
+<% @user.resources.each do |resource| %>
   <tr>
     <td><%= resource.title %></td>
     <td><%= resource.topic %></td>
     <td><%= resource.price %></td>
     <td><%= resource.content %></td>
     <td><%= resource.image %></td>
-    <td><%= link_to 'Show', resource %></td>
-    <td><%= link_to 'Edit', edit_resource_path(resource) %></td>
-    <td><%= link_to 'Destroy', resource, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= image_tag resource.image_url(:thumb).to_s %></td>
+     <td><%= link_to 'Show', user_resource_path(current_user.id, resource.id) %></td>
+    <td><%= link_to 'Edit', edit_user_resource_path(current_user.id, resource.id) %></td>
+    <td><%= link_to 'Destroy', "resource, method: :delete, data: { confirm: 'Are you sure?' }" %></td> 
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Resource', new_resource_path %>
+<%= link_to 'New Resource', "new_resource_path" %>

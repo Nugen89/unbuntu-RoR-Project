@@ -1,5 +1,8 @@
 <p id="notice"><%= notice %></p>
 
+  <%= debug @resource  %>
+  <%= debug @user  %>
+
 <p>
   <b>Title:</b>
   <%= @resource.title %>
@@ -26,5 +29,5 @@
 </p>
 
 
-<%= link_to 'Edit', edit_resource_path(@resource) %> |
-<%= link_to 'Back', resources_path %>
+<%= link_to 'Edit', edit_user_resource_path(current_user.id, @resource) %> |
+<%= link_to 'Back', user_resources_path %>

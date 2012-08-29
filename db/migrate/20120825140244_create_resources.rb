@@ -7,8 +7,11 @@ class CreateResources < ActiveRecord::Migration
       t.text :content
       t.string :image
       t.integer :rating
+      t.references :user
 
       t.timestamps
     end
+
+    add_index :resources, :user_id
   end
 end

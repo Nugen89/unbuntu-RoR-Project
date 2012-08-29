@@ -1,0 +1,5 @@
+<div class="pull-right">
+	<% if user_signed_in? %>
+		<%= link_to 'My Channel', user_path(current_user.id) %>
+	<% end %>
+</div>

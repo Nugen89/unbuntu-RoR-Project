@@ -1,9 +1,21 @@
 FirstApp::Application.routes.draw do
-  resources :resources
+  devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}
 
-  root to:  'resources#home'
+  root to:  'static_pages#index'
 
   match '/about', to:   'static_pages#about'
+
+  resources :users do
+    resources :resources
+  end
+
+  # match '/users/:id', to: 'users#show'
+  match '/users', to: 'admin#show_users'
+
+  # match '/user/my_profile', to: 'users#show', :as => 'user_profile'
+  
+  match '/marketplace', to: 'resources#marketplace', :as => 'resource_marketplace'
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,0 +1,23 @@
+<h2><%= "#{@user.email}'s Channel"  %></h2>
+
+<br/>
+
+<div class="well sidebar-nav span4">
+  <h4>Basic Profile Information</h4>
+
+  <!--   <%= debug @user.resources %> -->
+
+  <dl>
+    <dt>User ID: </dt>
+    <dd><%= @user.id %></dd>
+    <br/>
+    <dt>Email: </dt>
+    <dd><%= @user.email %></dd>
+    <br/>
+    <dt>Total Number of Resources: </dt>
+    <dd><%= @user.resources.count %></dd>    
+  </dl>
+
+  <%= link_to "New resource", new_user_resource_path(current_user.id) %> &#124;
+  <%= link_to "My resources", user_resources_path(current_user.id) %>
+</div>

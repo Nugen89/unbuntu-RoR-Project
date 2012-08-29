@@ -1,35 +1,34 @@
 class ResourcesController < ApplicationController
-
-  def home
-    
-  end
+  before_filter :authenticate_user!, except: [:index]
 
   # GET /resources
   # GET /resources.json
   def index
-    @resources = Resource.all
+    @user = User.find(params[:user_id])
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @resources }
+      format.json { render json: @user }
     end
   end
 
   # GET /resources/1
   # GET /resources/1.json
   def show
+    @user = User.find(params[:user_id])
     @resource = Resource.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @resource }
+      format.json { render json: @user }
     end
   end
 
   # GET /resources/new
   # GET /resources/new.json
   def new
-    @resource = Resource.new
+    @user = User.find(params[:user_id])
+    # @resource = @user.resources.create(params[:resource])
 
     respond_to do |format|
       format.html # new.html.erb
@@ -39,21 +38,27 @@ class ResourcesController < ApplicationController
 
   # GET /resources/1/edit
   def edit
+    @user = User.find(params[:user_id])
     @resource = Resource.find(params[:id])
   end
 
   # POST /resources
   # POST /resources.json
   def create
-    @resource = Resource.new(params[:resource])
+
+    @user = User.find(params[:user_id])
+    @resource = @user.resources.new(params[:resource])
+
+    # redirect_to resource_path(@resource)
+    # @resource = Resource.new(params[:resource])
 
     respond_to do |format|
       if @resource.save
-        format.html { redirect_to @resource, notice: 'Resource was successfully created.' }
-        format.json { render json: @resource, status: :created, location: @resource }
+        # format.html { redirect_to @resource, notice: 'Resource was successfully created.' }
+        # format.json { render json: @resource, status: :created, location: @resource }
       else
-        format.html { render action: "new" }
-        format.json { render json: @resource.errors, status: :unprocessable_entity }
+        # format.html { render action: "new" }
+        # format.json { render json: @resource.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -85,4 +90,11 @@ class ResourcesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+# -----------------------------------------------------------------------------------
+
+  def marketplace
+    
+  end
+
 end
